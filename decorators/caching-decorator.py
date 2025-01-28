@@ -20,3 +20,5 @@ val1 = [1, 2, 3, 4, 5, 2, 3, 4, 5]
 
 for val in val1:
     print(long_running_function(val, val))
+
+ #   https://youtu.be/-AzSRHiV9Cc?si=sfFj4ZnPpKEn9csm
