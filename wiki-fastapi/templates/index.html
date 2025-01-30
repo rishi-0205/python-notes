@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <style>
+        .title {
+          text-decoration: none;
+          color: inherit; 
+        }
+    
+        .title:visited {
+          color: inherit; 
+        }
+      </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="nav-bar">
+            <div class="title">
+                <a href="/" style="text-decoration: none; color: inherit;"><h1>Wikipedia</h1></a>
+            </div>
+            <div class="utils">
+                <a href="/create">Create New Page</a> | <a href="/random">Random Page</a>
+            
+                <form method="get" action="/search/">
+                    <input type="text" name="query" placeholder="Search..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <ul>
+                {% for title, slug in entries %}
+                <li><a href="/wiki/{{slug}}">{{title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

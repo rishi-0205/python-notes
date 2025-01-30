@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create New Article</title>
+    <style>
+        .title {
+          text-decoration: none;
+          color: inherit; 
+        }
+    
+        .title:visited {
+          color: inherit; 
+        }
+        form {
+          width: 100%;
+          max-width: 600px; 
+          margin: 0 auto; 
+        }
+
+        textarea {
+            width: 100%;            
+            padding: 10px;          
+            border-radius: 5px;     
+            border: 1px solid #ccc; 
+            font-size: 14px;        
+            box-sizing: border-box; 
+            margin-bottom: 15px;    
+        }
+
+
+      </style>
+</head>
+<body>
+    <div class="main-container">
+      <div class="nav-bar">
+        <a href="/" style="text-decoration: none; color: inherit;"><h1>Wikipedia</h1></a>
+      </div>
+      <form action="/create_new" method="post">
+        <textarea name="title" placeholder="Title..." rows="2" required></textarea>
+        <textarea name="content" placeholder="Content..." rows="10" required></textarea>
+    
+        <button type="submit">Create</button>
+    </form>
+    
+    </div>
+</body>
+</html>
