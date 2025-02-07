@@ -26,8 +26,6 @@ def display_article(request: Request, slug: str):
 @app.get("/random")
 def display_random_article(request: Request):
     slug = get_random()
-    title, articlemd = get_article_by_title(slug)
-    articlehtml = markdown_to_html(articlemd)
     return RedirectResponse(url=f"/wiki/{slug}", status_code=302)
 
 @app.get("/search")

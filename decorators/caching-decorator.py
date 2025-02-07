@@ -1,7 +1,7 @@
 import time
 
 def cache(func):
-    cache_value = {}
+    cache_value = {} #why it doesnt disapper
     def wrapper(*args):
         if args in cache_value:
             return cache_value[args]
@@ -22,3 +22,6 @@ for val in val1:
     print(long_running_function(val, val))
 
  #   https://youtu.be/-AzSRHiV9Cc?si=sfFj4ZnPpKEn9csm
+
+#  wsgi
+# venv
