@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ user.name }}'s Profile</h1>
+    <p>Email: {{ user.email }}</p>
+    <h2>My Listings</h2>
+    <ul>
+        {% for listing in user_listings %}
+            <li>
+                <a href="/listing/{{ listing.id }}">{{ listing.product_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h2>My Bids</h2>
+    <ul>
+        {% for bid in user_bids %}
+            <li>Bid for {{ bid.listing.product_name }}: ${{ bid.bid_value }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>My Comments</h2>
+    <ul>
+        {% for comment in user_comments %}
+            <li>Comment on {{ comment.listing.product_name }}: {{ comment.comment }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

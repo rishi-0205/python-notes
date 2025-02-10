@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create New Listing</h1>
+    <form method="post" action="/create_listing">
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <label for="image">Image URL:</label>
+        <input type="url" id="image" name="image">
+        
+        <label for="starting_bid">Starting Bid:</label>
+        <input type="number" id="starting_bid" name="starting_bid" step="0.01" required>
+        
+        <label for="active">Active:</label>
+        <input type="checkbox" id="active" name="active">
+        
+        <label for="category">Category:</label>
+        <ul id="category">
+            <li><input type="radio" name="category" value="Fashion"> Fashion</li>
+            <li><input type="radio" name="category" value="Electronics"> Electronics</li>
+            <li><input type="radio" name="category" value="Toys"> Toys</li>
+            <li><input type="radio" name="category" value="Home"> Home</li>
+            <!-- Add more categories here -->
+        </ul>
+
+        <button type="submit">Create Listing</button>
+    </form>
+{% endblock %}

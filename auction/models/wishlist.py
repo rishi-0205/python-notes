@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 
-
 class Wishlist(Base):
     __tablename__ = "wishlists"
 
@@ -11,4 +10,4 @@ class Wishlist(Base):
     listing_id = Column(Integer, ForeignKey("listings.id"))
 
     user = relationship("User", back_populates="wishlist")
-    lisitng = relationship("Listing", back_populates="wishlist")
+    listing = relationship("Listing", back_populates="wishlists")  # Fix typo from 'lisitng' to 'listing'

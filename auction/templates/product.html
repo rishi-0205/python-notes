@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ listing.product_name }}</h1>
+    <img src="{{ listing.image }}" alt="Product Image" width="400">
+    <p>{{ listing.description }}</p>
+    <p>Starting Bid: ${{ listing.starting_bid }}</p>
+
+    {% if user.is_authenticated %}
+        <h2>Place a Bid</h2>
+        <form method="post" action="/bid/{{ listing.id }}">
+            <input type="number" name="bid_value" step="0.01" placeholder="Enter your bid">
+            <button type="submit">Place Bid</button>
+        </form>
+        
+        <!-- Button to add the product to the wishlist -->
+        <form method="post" action="/wishlist/{{ listing.id }}">
+            <button type="submit">Add to Wishlist</button>
+        </form>
+    {% endif %}
+    
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in listing.comments %}
+            <li>{{ comment.user.username }}: {{ comment.comment }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <h3>Add a Comment</h3>
+        <form method="post" action="/comment/{{ listing.id }}">
+            <textarea name="comment" placeholder="Add your comment here"></textarea>
+            <button type="submit">Submit Comment</button>
+        </form>
+    {% endif %}
+{% endblock %}

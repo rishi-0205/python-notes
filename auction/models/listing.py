@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Float, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from database import Base
 
-
 class Listing(Base):
     __tablename__ = "listings"
 
@@ -14,9 +13,7 @@ class Listing(Base):
     category = Column(String)
     user_id = Column(Integer, ForeignKey("users.id"))
 
-
     owner = relationship("User", back_populates="listings")
     bids = relationship("Bid", back_populates="listing")
-    comment = relationship("Comment", back_populates="listing")
-    wishlist = relationship("Wishlist", back_populates="listing")
-    wishlist = relationship("Wishlist", back_populates="listing")
+    comments = relationship("Comment", back_populates="listing")  # Ensure this is defined
+    wishlists = relationship("Wishlist", back_populates="listing")

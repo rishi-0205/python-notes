@@ -12,4 +12,4 @@ class Comment(Base):
     listing_id = Column(Integer, ForeignKey("listings.id"))
 
     user = relationship("User", back_populates="comments")
-    listing = relationship("Listing", back_populates="comments")
+    listing = relationship("Listing", back_populates="comments")  # Ensure this is defined

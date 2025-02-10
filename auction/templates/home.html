@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Active Listings</h1>
+    <div class="listings">
+        {% for listing in listings %}
+            <div class="listing">
+                <h3>{{ listing.product_name }}</h3>
+                <img src="{{ listing.image }}" alt="Product Image" width="200">
+                <p>{{ listing.description }}</p>
+                <p>Starting Bid: ${{ listing.starting_bid }}</p>
+                <p>Category: {{ listing.category }}</p>
+                <a href="/listing/{{ listing.id }}">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
